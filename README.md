@@ -2,9 +2,11 @@
 libcef build instruction, based on branch 2623(Support WinXP)
 
 ## General
+```bash
      CEF Version：2623
 Chromium Version：49.0.2623.95
         Platform：Window XP SP3+
+```
 
 ## Windows Build Requirement
 * Win7+，64-bit, RAM: 8G+, Disk: 40GB+
@@ -123,4 +125,6 @@ ninja -C out\Release
 ```
 
 ##Congratulations
+```
 Get your coffee, and enjoy your building!
+```
