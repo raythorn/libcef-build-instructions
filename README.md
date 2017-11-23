@@ -19,19 +19,18 @@ Chromium Version：49.0.2623.95
 ### Download Package
 ```bash
 wget https://storage.googleapis.com/chrome-infra/depot_tools.zip
+unzip depot_tools.zip -d D:\
 ```
-### Extract depot_tools.zip to a specified directory(Like：D:\depot_tools)
-### Add 'D:\depot_tools' to computer environment PATH
+Add 'D:\depot_tools' to computer environment PATH
 
-## Prepare Chromuim Source
-### Download Source
+## Chromuim
 ```bash
 wget https://gsdview.appspot.com/chromium-browser-official/chromium-49.0.2623.95.tar.xz
 mkdir -p chromium/src
 tar zxvf chromium-49.0.2623.95.tar.gz -C chromium/src
 ```
 
-## Prepare CEF Source
+## CEF
 ```bash
 cd chromium/src
 git clone https://bitbucket.org/chromiumembedded/cef.git
@@ -39,19 +38,25 @@ git checkout -t origin/2623
 ```
 
 ## Prepare Dependency
-### bison
+#### bison
 ```bash
 cd chromium/src/third_party
 git clone https://chromium.googlesource.com/chromium/deps/bison
 ```
-### gperf
+
+#### gperf
 ```bash
 cd chromium/src/third_party
 git clone https://chromium.googlesource.com/chromium/deps/gperf
 ```
-### Download yasm.exe, and put into chromium\src\third_party\yasm\binaries\win
-### Download d3dcompiler_47.dll, and put into %VS_ROOT%\Redis\d3d\x86
-### Add missing file(chromium\src\chrome\test\data\webui\i18n_process_css_test.html）
+
+#### yasm
+Download yasm.exe, and put into chromium\src\third_party\yasm\binaries\win
+
+#### d3dcompiler_47.dll
+Download d3dcompiler_47.dll, and put into %VS_ROOT%\Redis\d3d\x86
+
+#### Add missing file(chromium\src\chrome\test\data\webui\i18n_process_css_test.html）
 ```html
 <!doctype html>
 <style>
@@ -81,11 +86,12 @@ function testI18nProcess_NbspPlaceholder() {
 
 ## Modify third_party\WebKit\Source\web\WebViewImpl.h，Implement function setUseExternalPopupMenusThisInstance
 ```c++
-	void setUseExternalPopupMenusThisInstance(bool useExternalPopupMenus)
-    {
-        m_shouldUseExternalPopupMenus = useExternalPopupMenus;
-    }
+void setUseExternalPopupMenusThisInstance(bool useExternalPopupMenus)
+{
+    m_shouldUseExternalPopupMenus = useExternalPopupMenus;
+}
 ```
+
 ## Delete compile flag '/WX' to forbid treat warning as error
 Comment follow content in file chromium\src\tools\gyp\pylib\gyp\msvs_emulation.py
 """cl('WarnAsError', map={'true': '/WX'})"""
@@ -109,10 +115,12 @@ call cef_create_projects.bat
 ```bash
 ./create_projects.bat
 ```
+
 ## Compile
 ```bash
 cd chromium\src
 ninja -C out\Release
 ```
+
 ##Congratulations
 Get your coffee, and enjoy your building!
