@@ -17,8 +17,7 @@ Chromium Version：49.0.2623.95
 * Chromium deploy tool: depot_tools and gclient
 * Cygwin Terminal
 
-## Install depot_tools
-### Download Package
+## depot_tools
 ```bash
 wget https://storage.googleapis.com/chrome-infra/depot_tools.zip
 unzip depot_tools.zip -d D:\
@@ -39,7 +38,7 @@ git clone https://bitbucket.org/chromiumembedded/cef.git
 git checkout -t origin/2623
 ```
 
-## Prepare Dependency
+## Dependency
 #### bison
 ```bash
 cd chromium/src/third_party
