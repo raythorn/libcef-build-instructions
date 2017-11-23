@@ -7,19 +7,21 @@ libcef build instruction, based on branch 2623(Support WinXP)
 	        Platform：Window XP SP3+
 
 ## Windows Build Requirement
-	* Win7+，64-bit, RAM: 8G+, Disk: 40GB+
-	* Visual Studio VS2014 update4
-	* Windows 10 SDK
-	* VPN
-	* Python
-	* Chromium deploy tool: depot_tools and gclient
-	* Cygwin Terminal
+* Win7+，64-bit, RAM: 8G+, Disk: 40GB+
+* Visual Studio VS2014 update4
+* Windows 10 SDK
+* VPN
+* Python
+* Chromium deploy tool: depot_tools and gclient
+* Cygwin Terminal
 
 ## Install depot_tools
-	* Download Package
+	### Download Package
+	```bash
 		wget https://storage.googleapis.com/chrome-infra/depot_tools.zip
-	* Extract depot_tools.zip to a specified directory(Like：D:\depot_tools)
-	* Add 'D:\depot_tools' to computer environment PATH
+	```
+	### Extract depot_tools.zip to a specified directory(Like：D:\depot_tools)
+	### Add 'D:\depot_tools' to computer environment PATH
 
 4. 准备Chromium源码
 	4.1 下载源码
