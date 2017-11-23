@@ -41,7 +41,7 @@ CEF编译指南
 		cd chromium/src/third_party
 		git clone https://chromium.googlesource.com/chromium/deps/gperf
 	6.3 下载yasm.exe，放到chromium\src\third_party\yasm\binaries\win目录下
-	6.4 下载d3dcompiler_47.dll文件，放到%VS_ROOT%\Redis\d3d\x86目录下
+	6.4 下载d3dcompiler_47.dll文件，放到%VS_ROOT%\Redist\d3d\x86目录下
 	6.5 添加缺失文件（chromium\src\chrome\test\data\webui\i18n_process_css_test.html）
 
 		<!doctype html>

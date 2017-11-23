@@ -55,7 +55,7 @@ git clone https://chromium.googlesource.com/chromium/deps/gperf
 Download yasm.exe, and put into chromium\src\third_party\yasm\binaries\win
 
 #### d3dcompiler_47.dll
-Download d3dcompiler_47.dll, and put into %VS_ROOT%\Redis\d3d\x86
+Download d3dcompiler_47.dll, and put into %VS_ROOT%\Redist\d3d\x86
 
 #### Add missing file(chromium\src\chrome\test\data\webui\i18n_process_css_test.html）
 ```html
@@ -123,7 +123,5 @@ cd chromium\src
 ninja -C out\Release
 ```
 
-##Congratulations
-```
+## Congratulations
 Get your coffee, and enjoy your building!
-```
