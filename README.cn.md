@@ -99,6 +99,11 @@ CEF编译指南
 10. 配置CEF工程
 	./create_projects.bat
 
-11. 编译工程
+11. 更新libcef_dll_wrapper.ninja文件
+	修改'chromium/src/out/Release/obj/cef/libcef_dll_wrapper.ninja'文件，把cflags中的'/MT'修改为'/MD'
+	修改'chromium/src/out/Debug/obj/cef/libcef_dll_wrapper.ninja'文件，把cflags中的'/MTd'修改为'/MDd'
+
+12. 编译工程
 	cd chromium\src
-	ninja -C out\Release
+	ninja libcef_dll_wrapper -C out\Release
+	ninja libcef_dll_wrapper -C out\Debug

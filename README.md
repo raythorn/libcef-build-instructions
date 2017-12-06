@@ -117,6 +117,10 @@ call cef_create_projects.bat
 ./create_projects.bat
 ```
 
+## Update libcef_dll_wrapper.ninja
+Change cflags in 'chromium/src/out/Release/obj/cef/libcef_dll_wrapper.ninja' 'MT' to '/MD'.
+Change cflags in 'chromium/src/out/Debug/obj/cef/libcef_dll_wrapper.ninja' 'MTd' to '/MDd'.
+
 ## Compile
 ```bash
 cd chromium\src
