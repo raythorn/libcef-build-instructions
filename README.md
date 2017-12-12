@@ -26,9 +26,9 @@ Add 'D:\depot_tools' to computer environment PATH
 
 ## Chromuim
 ```bash
-wget https://gsdview.appspot.com/chromium-browser-official/chromium-49.0.2623.95.tar.xz
+wget https://gsdview.appspot.com/chromium-browser-official/chromium-49.0.2623.110.tar.xz
 mkdir -p chromium/src
-tar zxvf chromium-49.0.2623.95.tar.gz -C chromium/src
+tar Jxvf chromium-49.0.2623.110.tar.xz -C chromium/src
 ```
 
 ## CEF
@@ -52,10 +52,10 @@ git clone https://chromium.googlesource.com/chromium/deps/gperf
 ```
 
 #### yasm
-Download yasm.exe, and put into chromium\src\third_party\yasm\binaries\win
+  Download yasm.exe, and put into chromium\src\third_party\yasm\binaries\win
 
 #### d3dcompiler_47.dll
-Download d3dcompiler_47.dll, and put into %VS_ROOT%\Redist\d3d\x86
+  Download d3dcompiler_47.dll, and put into %VS_ROOT%\Redist\d3d\x86
 
 #### Add missing file(chromium\src\chrome\test\data\webui\i18n_process_css_test.html）
 ```html
@@ -85,17 +85,9 @@ function testI18nProcess_NbspPlaceholder() {
 </script>
 ```
 
-## Modify third_party\WebKit\Source\web\WebViewImpl.h，Implement function setUseExternalPopupMenusThisInstance
-```c++
-void setUseExternalPopupMenusThisInstance(bool useExternalPopupMenus)
-{
-    m_shouldUseExternalPopupMenus = useExternalPopupMenus;
-}
-```
-
 ## Delete compile flag '/WX' to forbid treat warning as error
-Comment follow content in file chromium\src\tools\gyp\pylib\gyp\msvs_emulation.py
-"""cl('WarnAsError', map={'true': '/WX'})"""
+  Comment follow content in file chromium\src\tools\gyp\pylib\gyp\msvs_emulation.py
+  """cl('WarnAsError', map={'true': '/WX'})"""
 
 ## Create gen_projects.bat
 ```bash
@@ -118,8 +110,8 @@ call cef_create_projects.bat
 ```
 
 ## Update libcef_dll_wrapper.ninja
-Change cflags in 'chromium/src/out/Release/obj/cef/libcef_dll_wrapper.ninja' 'MT' to '/MD'.
-Change cflags in 'chromium/src/out/Debug/obj/cef/libcef_dll_wrapper.ninja' 'MTd' to '/MDd'.
+  Change cflags in 'chromium/src/out/Release/obj/cef/libcef_dll_wrapper.ninja' 'MT' to '/MD'.
+  Change cflags in 'chromium/src/out/Debug/obj/cef/libcef_dll_wrapper.ninja' 'MTd' to '/MDd'.
 
 ## Compile
 ```bash

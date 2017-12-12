@@ -22,10 +22,12 @@ CEF编译指南
 
 4. 准备Chromium源码
 	4.1 下载源码
-		wget https://gsdview.appspot.com/chromium-browser-official/chromium-49.0.2623.95.tar.xz
+		wget https://gsdview.appspot.com/chromium-browser-official/chromium-49.0.2623.110.tar.xz
 	4.2 解压源码
-		mkdir -p chromium/src
-		tar zxvf chromium-49.0.2623.95.tar.gz -C chromium/src
+		mkdir -p chromium/
+		tar Jxvf chromium-49.0.2623.110.tar.xz -C chromium/src
+		cd chromium
+		mv chromium-49.0.2623.110 src
 
 5. 准备CEF源码
 	5.1 下载源码
@@ -69,20 +71,13 @@ CEF编译指南
 		}
 		</script>
 
-7. 修改third_party\WebKit\Source\web\WebViewImpl.h，实现setUseExternalPopupMenusThisInstance函数
-	
-	void setUseExternalPopupMenusThisInstance(bool useExternalPopupMenus)
-    {
-        m_shouldUseExternalPopupMenus = useExternalPopupMenus;
-    }
-
-8. 去掉编译选项'/WX'，禁止把警告当做错误处理
+7. 去掉编译选项'/WX'，禁止把警告当做错误处理
 	注释掉chromium\src\tools\gyp\pylib\gyp\msvs_emulation.py关于'/WX'的内容:
 	"""cl('WarnAsError', map={'true': '/WX'})"""
 
-9. 准备工程配置脚本
-	9.1 创建一个批处理文件（create_projects.bat)
-	9.2 将以下内容放入批处理文件中
+8. 准备工程配置脚本
+	8.1 创建一个批处理文件，放入'chromium/src/cef'目录中（create_projects.bat)
+	8.2 将以下内容放入批处理文件中
 
 		set CEF_VCVARS=none
 		set GYP_MSVS_OVERRIDE_PATH=%VS2013%
@@ -96,14 +91,15 @@ CEF编译指南
 		set INCLUDE=%WINSDK10%\Include\10.0.16299.0\um;%WINSDK10%\Include\10.0.16299.0\ucrt;%WINSDK10%\Include\10.0.16299.0\shared;%WINSDK10%\Include\10.0.16299.0\winrt;%VS2013%\VC\include;%VS2013%\VC\atlmfc\include;%INCLUDE%
 		call cef_create_projects.bat
 
-10. 配置CEF工程
+9. 配置CEF工程
+	cd chromium/src/cef
 	./create_projects.bat
 
-11. 更新libcef_dll_wrapper.ninja文件
+10. 更新libcef_dll_wrapper.ninja文件
 	修改'chromium/src/out/Release/obj/cef/libcef_dll_wrapper.ninja'文件，把cflags中的'/MT'修改为'/MD'
 	修改'chromium/src/out/Debug/obj/cef/libcef_dll_wrapper.ninja'文件，把cflags中的'/MTd'修改为'/MDd'
 
-12. 编译工程
+11. 编译工程
 	cd chromium\src
 	ninja libcef_dll_wrapper -C out\Release
 	ninja libcef_dll_wrapper -C out\Debug
