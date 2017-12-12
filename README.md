@@ -86,8 +86,10 @@ function testI18nProcess_NbspPlaceholder() {
 ```
 
 ## Delete compile flag '/WX' to forbid treat warning as error
-  Comment follow content in file chromium\src\tools\gyp\pylib\gyp\msvs_emulation.py
-  """cl('WarnAsError', map={'true': '/WX'})"""
+```text
+Comment follow content in file chromium\src\tools\gyp\pylib\gyp\msvs_emulation.py
+"""cl('WarnAsError', map={'true': '/WX'})"""
+```
 
 ## Create gen_projects.bat
 ```bash
@@ -110,8 +112,10 @@ call cef_create_projects.bat
 ```
 
 ## Update libcef_dll_wrapper.ninja
-  Change cflags in 'chromium/src/out/Release/obj/cef/libcef_dll_wrapper.ninja' 'MT' to '/MD'.
-  Change cflags in 'chromium/src/out/Debug/obj/cef/libcef_dll_wrapper.ninja' 'MTd' to '/MDd'.
+```text
+Change cflags in 'chromium/src/out/Release/obj/cef/libcef_dll_wrapper.ninja' 'MT' to '/MD'.
+Change cflags in 'chromium/src/out/Debug/obj/cef/libcef_dll_wrapper.ninja' 'MTd' to '/MDd'.
+```
 
 ## Compile
 ```bash
