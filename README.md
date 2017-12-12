@@ -97,7 +97,7 @@ set CEF_VCVARS=none
 set GYP_MSVS_OVERRIDE_PATH=%VS2013%
 set CEF_USE_GN=0
 set DEPOT_TOOLS_WIN_TOOLCHAIN=0
-set GYP_DEFINES=buildtype=Official branding=Chromium windows_sdk_path="C:\Program Files (x86)\Microsoft Visual Studio 12.0"
+set GYP_DEFINES=buildtype=Official branding=Chromium proprietary_codecs=1 ffmpeg_branding=Chrome windows_sdk_path="C:\Program Files (x86)\Microsoft Visual Studio 12.0"
 set GYP_GENERATORS=ninja
 set GYP_MSVS_VERSION=2013
 set PATH=%WINSDK10%\bin\10.0.16299.0\x86;%VS2013%\VC\bin;%PATH%
